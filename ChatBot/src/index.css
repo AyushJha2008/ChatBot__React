@@ -62,9 +62,10 @@ body{
     flex-direction: column;
     gap: 1.2rem;
     align-items: flex-end;
-    max-height: 70vh;
-    overflow-y: scroll;
+    height: 60vh;
+    overflow-y: auto;
     scrollbar-width: none;
+    scrollbar-color: lightpink;
     padding-bottom: 0;
     position: relative;
 }
@@ -96,6 +97,7 @@ body{
 }
 .chatFooter{
     padding: 1rem;
+    padding-top: 5px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -122,6 +124,7 @@ body{
     border: 1px solid grey;
     padding: 0.6rem 3rem 0.6rem 1rem;
     font-size: large;
+    background-color: antiquewhite;
 }
 .msg-input:focus-within{
     border: 1px solid black;

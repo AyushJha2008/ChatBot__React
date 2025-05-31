@@ -1,4 +1,12 @@
+import { useState } from "react"
+import ChatForm from "./components/ChatForm"
+import ChatMsg from "./components/ChatMsg"
+
 const App = () => {
+  const [chatHistory, setChatHistory] = useState([])
+  const genBotResponse = () =>{
+    console.log(history);
+  }
   return (
     <div className="cont">
       <div className="botPop">
@@ -19,56 +27,15 @@ const App = () => {
             </p>
           </div>
 
-          {/* user msg */}
-          <div className="msg userMsg">
-            <p className="msg-text">
-              what can you do <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque repellendus qui impedit, esse inventore?
-            </p>
-          </div>
-
-          <div className="msg botMsg">
-            <img src="./src/assets/bot.png"  />
-            <p className="msg-text">
-              Hey there <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam mollitia labore consequatur unde provident? Fugit fuga perferendis molestias repellendus impedit.
-            </p>
-          </div>
-
-          {/* user msg */}
-          <div className="msg userMsg">
-            <p className="msg-text">
-              what can you do <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque repellendus qui impedit, esse inventore bolsoc disper vokter Lorem ipsum dolor sit amet.?
-            </p>
-          </div>
-
-          <div className="msg botMsg">
-            <img src="./src/assets/bot.png"  />
-            <p className="msg-text">
-              Hey there <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam mollitia labore consequatur unde provident? Fugit fuga perferendis molestias repellendus impedit.
-            </p>
-          </div>
-
-          {/* user msg */}
-          <div className="msg userMsg">
-            <p className="msg-text">
-              what can you do <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque repellendus qui impedit, esse inventore?
-            </p>
-          </div>
-
-          <div className="msg botMsg">
-            <img src="./src/assets/bot.png"  />
-            <p className="msg-text">
-              Hey there <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam mollitia labore consequatur unde provident? Fugit fuga perferendis molestias repellendus impedit.
-            </p>
-          </div>
-
-
+          {/* render msg dynamically*/}
+          {chatHistory.map((chat, index)=>
+          <ChatMsg key={index} chat={chat} />
+          )}
+          
         </div>
 
         <div className="chatFooter">
-          <form action="#" className="chatForm">
-            <input type="text" placeholder="message..." required className="msg-input" />
-            <button className="material-symbols-outlined" >arrow_upward</button>
-          </form>
+          <ChatForm setChatHistory={setChatHistory} genBotResponse={genBotResponse}/>
         </div>
       </div>
     </div>
