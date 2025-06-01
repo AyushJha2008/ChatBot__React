@@ -8,4 +8,4 @@ Today (1 June 2025) I completed my another React project ChatBot, an AI which ca
 
 # Preview
 
-![Output Image](ChatBot/output.png)
+![Output Image](ChatBot/src/assets/output.png)
