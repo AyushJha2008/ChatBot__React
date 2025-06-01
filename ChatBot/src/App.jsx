@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import ChatForm from "./components/ChatForm"
 import ChatMsg from "./components/ChatMsg"
 
 const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
-  // const chatBody = useRef
+  const chatBody = useRef()
   const genBotResponse = async (history) =>{
     const updateHistory = (text) =>{
       setChatHistory(prev=> [...prev.filter(msg => msg.text !== "Thinking...."), {role:"model", text}])
@@ -32,6 +32,10 @@ const App = () => {
       console.log(error);
     }
   }
+  useEffect(()=>{
+    // new chat => top
+    chatBody.current.scrollTo({top: chatBody.current.scrollHeight, behavior: "smooth"})
+  }, [chatHistory])
   return (
     <div className="cont">
       <div className="botPop">
@@ -44,11 +48,11 @@ const App = () => {
         </div>
 
         {/* bot msg */}
-        <div className="chatBody">
+        <div ref={chatBody} className="chatBody">
           <div className="msg botMsg">
             <img src="./src/assets/bot.png"  />
             <p className="msg-text">
-              Hey there <br />How can I help you
+              Hey there Ayush!!<br />How can I help you
             </p>
           </div>
 
