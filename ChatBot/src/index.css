@@ -24,7 +24,8 @@ body{
     background-color: antiquewhite;
     border-radius: 16px;
     overflow: hidden;
-    width: 40%;
+    width: 60vw;
+    max-width: 60vw;
 }
 .head-info{
     display: flex;
@@ -57,23 +58,25 @@ body{
     cursor: pointer;
 }
 .chatBody{
-    padding: 1rem;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
     gap: 1.2rem;
-    align-items: flex-end;
     height: 60vh;
     overflow-y: auto;
-    scrollbar-width: none;
-    scrollbar-color: lightpink;
+    scrollbar-width: thin;
+    scrollbar-color: lightpink transparent;
     padding-bottom: 0;
     position: relative;
 }
 .botMsg{
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 70%;
+    word-wrap: break-word;
     gap: 10px;
     margin-right: 20%;
-    align-items: end;
 }
 .botMsg img{
     border-radius: 50%;
@@ -87,13 +90,21 @@ body{
     border-bottom-left-radius: 0;
 }
 .userMsg{
+    display: flex;
+    justify-content: flex-end;
     margin-left: 20%;
+    word-wrap: break-word;
 }
 .userMsg p{
     background-color: deeppink;
     color: beige;
-    padding: 10px;border-radius: 1rem;
+    padding: 10px;
+    border-radius: 1rem;
     border-bottom-right-radius: 0;
+}
+.botMsg p, .userMsg p{
+    padding: 10px;
+    white-space: normal;
 }
 .chatFooter{
     padding: 1rem;
